@@ -2,102 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Random Quote Machine</title>
 </head>
-<style>
-    body {
-        background-color: cadetblue;
-    }
-
-    footer {
-        text-align: center;
-        font-family: "Calibri Light";
-        font-weight: 300;
-        color: white;
-    }
-
-    .quote-text {
-        line-height: 120%;
-        font-family: "Browallia New";
-        font-size: x-large;
-        text-align: center;
-        border: none;
-    }
-
-    .btn {
-        padding-top: -20px;
-        float: right;
-        border: none;
-        font-weight: 600;
-    }
-
-    #totweet {
-        padding: 0 0 0 0;
-        margin: 0 0 0 0;
-        border: none;
-        background-color: inherit;
-        float: left;
-    }
-
-    .jumbotron {
-        margin: 25% auto auto auto;
-        height: 350px;
-        width: 650px;
-    }
-
-    p .jumbotron {
-        margin-bottom: 15px;
-    }
-
-    #author {
-        float: right;
-        padding: 15px 15px 15px 15px;
-    }
-
-    .desk {
-        height: 350px;
-        width: 650px;
-        margin: 20% auto auto auto;
-        background-color: inherit;
-        opacity: 0.9;
-    }
-
-    .img-rounded {
-        border: none;
-    }
-
-    #allquote {
-        height: 200px;
-    }
-    .new-quote {
-        background-color: indianred;
-    }
-
-</style>
 <body>
 <div class="container main">
-    <div class="desk">
+    <!--<div class="desk">-->
         <div class="jumbotron">
             <div class="container">
                 <div id="allquote">
                     <div id="quote-text">
-                        <p class="lead">
-                        <h3>
-                        </h3>
+                        <!--<p class="lead">-->
+                        <h2>
+                        </h2>
+                        <!--</p>-->
                     </div>
                     <div id="quote-author">
-                        <h2></h2>
-                        </p>
+                        <h4></h4>
                     </div>
                 </div>
-            </div>
+            <!--</div>-->
             <div id="allbutton">
-                <button class="btn btn-large btn-info" type="button" id="changes" style="background-color: indianred">New quote</button>
+                <button class="btn btn-large btn-info" type="button" id="changes" >New quote</button>
                 <a class="twitter-share-button"
                    href="https://twitter.com/intent/tweet">
                     <button class="btn btn-default" id="totweet">
-                        <img src="pict/TwitterLogo7.png" class="img-rounded">
+                        <img src="images/twittergray.png" class="img-rounded">
                     </button>
                 </a>
             </div>
@@ -107,6 +39,7 @@
 <footer>
     <h3>by bazzika</h3>
 </footer>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -144,7 +77,7 @@
 //                author: 'Christopher Columbus'
 //            }
 //        ];
-var colorArray=["#007faa", "#28a228", "#f62459", "#708090", "#f64747", "#ff4500", "#7462e0","#8b008b"];
+var colorArray=['#37474F','#616161','#4E342E','#827717','#33691E','#1B5E20','#FF9500','#004D40','#006064','#01579B','#0D47A1','#1A237E','#C86EDF','#34AADC','#8E8E93'];
 //        function changeQuote() {
 //            var randomNumber = Math.ceil(Math.random() * Object.keys(quotes).length);
 //            $('#quote-text h3').text(quotes[randomNumber].quoteText);
@@ -172,15 +105,15 @@ function remoteQuotes(){
         dataType: 'json'
     }).done(function(quote){
         console.log(quote);
-        $('#quote-text h3').text(quote.quote);
-        $('#quote-author h2').text(quote.author);
+        $('#quote-text h2').text(quote.quote);
+        $('#quote-author h4').text(quote.author);
         $('.twitter-share-button').prop('href', 'https://twitter.com/intent/tweet?text='
                 + quote.quote +
                 quote.author
         );
         var randomColor = colorArray[Math.floor(Math.random() * (colorArray.length - 0 + 1)) + 0];
         $('body').css('background-color',randomColor);
-        $('.desk').css('color',randomColor);
+        $('.jumbotron').css('color',randomColor);
         $('#changes').css('background-color',randomColor);
 });
         }
@@ -190,5 +123,4 @@ function remoteQuotes(){
 
 
 </script>
-</body>
 </html>
