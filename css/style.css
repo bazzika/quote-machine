@@ -80,7 +80,7 @@ p .jumbotron {
 button{
     border:none;
 }
-button:hover,button:active,button:link{
+button:hover,button:active,button:link,button:focus,button:visited{
     border:none;
 }
 .btn:hover,.btn:active,.btn:link{
