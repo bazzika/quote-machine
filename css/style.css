@@ -113,10 +113,12 @@ button:hover,button:active,button:link,button:focus,button:visited{
 /*}*/
     #quote-text {
 height: 300px;
+        font-size: 24px;
+        text-align: left;
+
     }
     #quote-author h4{
         text-align: center;
-        font-size: 24px;
     }
     #totweet {
         margin-top: 100px;
